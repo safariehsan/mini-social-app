@@ -1,46 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Mini Social App
+A web application using React.js as Frontend & Firebase as Backend!
+![Mini Social App Banner](https://rahkarino.com/wp-content/uploads/2022/12/Mini_Social_App-1.png)
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Light/dark mode toggle
+- Like/Unlike posts
+- Google login authentication
+- Send comments for each post
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Authors
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [@safariehsan](https://www.github.com/safariehsan)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Environment Variables
 
-### `npm run build`
+To run this project, you will need to add the following environment variables from Firebase setting to your .env file:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`API_KEY`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`AUTH_DOMAIN`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`PROJECT_ID`
 
-### `npm run eject`
+`STORAGE_BUCKET`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`MESSAGING_SENDER_ID`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`APP_ID`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🚀 About Me
 
-## Learn More
+- 🔭 I’m currently working on **Mini Social App**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 🌱 I’m currently learning **Python**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 👯 I’m looking to collaborate on **React.js Projects**
+
+- 📝 I regularly write articles on [https://rahkarino.com](https://rahkarino.com)
+
+- 💬 Ask me about **React.js & Next.js**
+
+- 📫 How to reach me **ehsansafari@hotmail.com**
+
+
+
+## Installation
+
+In order to run this application, please install these packages:
+
+```bash
+  yarn add axios react-hook-form @hookform/resolvers yup
+  yarn add @tanstack/react-query react-router-dom
+  yarn add react-redux @reduxjs/toolkit
+```
+    
