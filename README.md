@@ -1,8 +1,7 @@
 
 # Mini Social App
-
 A web application using React.js as Frontend & Firebase as Backend!
-
+![Mini Social App Banner](https://rahkarino.com/wp-content/uploads/2022/12/Mini_Social_App-1.png)
 
 ## Features
 
