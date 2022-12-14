@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mini-social-app/static/css/main.b5705a2c.css",
+    "main.js": "/mini-social-app/static/js/main.370a068e.js",
+    "index.html": "/mini-social-app/index.html",
+    "main.b5705a2c.css.map": "/mini-social-app/static/css/main.b5705a2c.css.map",
+    "main.370a068e.js.map": "/mini-social-app/static/js/main.370a068e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5705a2c.css",
+    "static/js/main.370a068e.js"
+  ]
+}
