@@ -29,7 +29,6 @@ export const Posts = () => {
   }, []);
   return (
     <div className="d-flex justify-content-center">
-      <div className="w-50 text-center">
         <div className="posts">
           {postsList ? postsList.map((item, index) => {
             return <PostItem key={index} post={item} />;
@@ -39,7 +38,6 @@ export const Posts = () => {
             </svg> {error}
           </div>}
         </div>
-      </div>
     </div>
   );
 };

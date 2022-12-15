@@ -56,8 +56,6 @@ export const PostForm = () => {
                 placeholder="Enter Post Title"
                 {...register("title")}
               />
-              {/* <div className="valid-feedback">Looks good!</div>
-          <div className="invalid-feedback">{errors.title?.message}</div> */}
               <p className="invalid-feedback d-block">
                 {errors.title?.message}
               </p>
