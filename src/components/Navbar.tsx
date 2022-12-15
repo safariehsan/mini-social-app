@@ -60,8 +60,10 @@ const Navbar = () => {
               <Spinner />
             ) : user ? (
               <>
-                <img width={20} src={user?.photoURL || ""} />{" "}
-                {user?.displayName}{" "}
+                <Link to="/profile" className="no-underline">
+                  <img width={20} src={user?.photoURL || ""} />{" "}
+                  {user?.displayName}{" "}
+                </Link>
                 <button
                   className="btn btn-outline-danger btn-sm"
                   onClick={signUserOut}

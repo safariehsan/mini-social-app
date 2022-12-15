@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { auth, db } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 interface NewPost {
   title: string;
   description: string;
+  datetime: string;
 }
 
 export const PostForm = () => {
@@ -26,7 +27,6 @@ export const PostForm = () => {
     resolver: yupResolver(schema),
   });
   const postsCollection = collection(db, "posts");
-
   const onFormSubmit = async (values: NewPost) => {
     await addDoc(postsCollection, {
       // title: values.title,
@@ -34,6 +34,7 @@ export const PostForm = () => {
       ...values,
       username: user?.displayName,
       userId: user?.uid,
+      datetime: Timestamp.now().toDate().toDateString(),
     });
     navigate("/");
   };

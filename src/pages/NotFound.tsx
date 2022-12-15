@@ -1,7 +1,7 @@
-import React from "react";
+import NotFoundImage from "../assets/images/404-error.svg";
 
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return <div className="not-found"><img src={NotFoundImage} /></div>;
 };
 
 export default NotFound;
