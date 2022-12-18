@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../config/firebase";
 import { PostType } from "../components/Posts";
+import CommentForm from "./CommentForm";
+import Comments from "./Comments";
 
 interface IPost {
   post: PostType;
@@ -25,6 +27,7 @@ export const PostItem = (props: IPost) => {
   const likesCollection = collection(db, "likes");
   const likesDoc = query(likesCollection, where("postId", "==", props.post.id));
   const [likes, setLikes] = useState<ILike[] | null>(null);
+  const [displayComments, setDisplayComments] = useState<boolean>(false);
   const getLikes = async () => {
     const data = await getDocs(likesDoc);
     const likess = data.docs.map((doc) => ({
@@ -82,12 +85,7 @@ export const PostItem = (props: IPost) => {
         <h3 className="h5">{props.post.title}</h3>
       </div>
       <div className="card-body">
-        <img
-          width={300}
-          alt="post-image"
-          src={props.post.photo}
-          // src={`https://firebasestorage.googleapis.com/v0/b/react-social-app-cfda3.appspot.com/o/images%2F${props.post.photo}`}
-        />
+        <img width={300} alt="post-image" src={props.post.photo} />
         <br />
         {props.post.description}
       </div>
@@ -120,6 +118,23 @@ export const PostItem = (props: IPost) => {
             {props.post.datetime}
           </small>
           <div>
+            <button
+              className="btn btn-default btn-sm"
+              onClick={() => setDisplayComments(!displayComments)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-chat-square-dots"
+                viewBox="0 0 16 16"
+              >
+                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg>{" "}
+              0 Comment(s)
+            </button>
             <button
               className="btn btn-sm btn-default p-0 mb-1"
               onClick={isUserLiked ? removeLike : addLike}
@@ -157,6 +172,12 @@ export const PostItem = (props: IPost) => {
             </button>
             <span className="like-count"> {likes && likes.length}</span>
           </div>
+        </div>
+      </div>
+      <div className={`${displayComments ? "d-block" : "d-none"}`}>
+        <div className="card card-body">
+          <CommentForm postId={props.post.id} />
+          <Comments postId={props.post.id} />
         </div>
       </div>
     </div>
