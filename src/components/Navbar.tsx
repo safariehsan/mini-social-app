@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container px-5">
+      <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={AppLogo} alt="logo" width={40} />
         </Link>
@@ -41,7 +41,11 @@ const Navbar = () => {
                 Home{" "}
               </Link>
             </li>
-            {!user ? (
+            {loading ? (
+              <li className="nav-item">
+                <Spinner />
+              </li>
+            ) : !user ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/login">
                   Login

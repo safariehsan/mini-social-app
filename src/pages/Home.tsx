@@ -1,7 +1,7 @@
 import { Posts } from "../components/Posts";
 
 const Home = () => {
-  return <Posts />;
+  return <><h1>Posts:</h1><Posts /></>;
 };
 
 export default Home;
