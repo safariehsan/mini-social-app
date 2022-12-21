@@ -29,6 +29,12 @@ export const PostForm = () => {
   const [uploadedUrl, setUploadedUrl] = useState<string>("");
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [isUploaded, setIsUploaded] = useState<boolean>(false);
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png",
+  ];
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const schema = yup.object().shape({
@@ -40,6 +46,16 @@ export const PostForm = () => {
       }
       return false;
     }),
+    // .test(
+    //   "fileFormat",
+    //   "Unsupported Format",
+    //   (value) => value && SUPPORTED_FORMATS.includes(value.type)
+    // )
+    // .test(
+    //   "fileSize",
+    //   "File too large",
+    //   (value) => value && value.size <= FILE_SIZE
+    // ),
   });
 
   const {
