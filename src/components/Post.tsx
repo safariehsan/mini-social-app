@@ -13,6 +13,7 @@ import { auth, db } from "../config/firebase";
 import { PostType } from "../components/Posts";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
+import { getComments } from "../services";
 
 interface IPost {
   post: PostType;
@@ -28,6 +29,8 @@ export const PostItem = (props: IPost) => {
   const likesDoc = query(likesCollection, where("postId", "==", props.post.id));
   const [likes, setLikes] = useState<ILike[] | null>(null);
   const [displayComments, setDisplayComments] = useState<boolean>(false);
+  const [commentsNumber, setCommentsNumber] = useState<number>(0);
+  const [isCommentsUpdated, setIsCommentUpdated] = useState<boolean>(false);
   const getLikes = async () => {
     const data = await getDocs(likesDoc);
     const likess = data.docs.map((doc) => ({
@@ -76,9 +79,18 @@ export const PostItem = (props: IPost) => {
     }
   };
   const isUserLiked = likes?.find((like) => like.userId === user?.uid);
+
   useEffect(() => {
     getLikes();
   }, []);
+
+  useEffect(() => {
+    getComments(props.post.id)
+      .then((res: any) => {
+        setCommentsNumber(res.length);
+      })
+      .catch((err) => console.log(err));
+  }, [isCommentsUpdated]);
   return (
     <div className="card post-item mb-3">
       <div className="card-header bg-dark text-white">
@@ -133,7 +145,7 @@ export const PostItem = (props: IPost) => {
                 <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                 <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
               </svg>{" "}
-              0 Comment(s)
+              {commentsNumber} Comment(s)
             </button>
             <button
               className="btn btn-sm btn-default p-0 mb-1"
@@ -170,14 +182,17 @@ export const PostItem = (props: IPost) => {
                 </>
               )}
             </button>
-            <span className="like-count"> {likes && likes.length}</span>
+            <span className="like-count">{likes && likes.length}</span>
           </div>
         </div>
       </div>
       <div className={`${displayComments ? "d-block" : "d-none"}`}>
         <div className="card card-body">
-          <CommentForm postId={props.post.id} />
-          <Comments postId={props.post.id} />
+          <CommentForm
+            postId={props.post.id}
+            setIsCommentUpdated={setIsCommentUpdated}
+          />
+          <Comments postId={props.post.id} isCommentsUpdated={isCommentsUpdated}/>
         </div>
       </div>
     </div>

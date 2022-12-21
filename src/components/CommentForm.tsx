@@ -4,20 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { auth, db } from "../config/firebase";
-import { useNavigate } from "react-router-dom";
-
-interface IComment {
-  body: string;
-  datetime: string;
-  userId: string;
-  postId: string;
-}
+import { IComment } from "./Comments";
 
 const CommentForm = (props: any) => {
   const schema = yup.object().shape({
-    body: yup.string().required("Body Comment Is Required").min(2),
+    body: yup.string().required("Comment message is required").min(2),
   });
-  // const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -37,13 +29,13 @@ const CommentForm = (props: any) => {
     };
     try {
       await addDoc(commentsCollection, {
-        data,
+        ...data,
       });
-      alert("comment sent!");
+      // alert("comment sent!");
       reset({
         body: "",
       });
-      // navigate("/");
+      props.setIsCommentUpdated(true);
     } catch (err) {
       console.log(err);
     }

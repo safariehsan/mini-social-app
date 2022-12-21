@@ -1,7 +1,6 @@
-import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { PostItem } from "../components/Post";
-import { db } from "../config/firebase";
+import { getPosts } from "../services";
 
 export interface PostType {
   id: string;
@@ -14,20 +13,14 @@ export interface PostType {
 }
 
 export const Posts = () => {
-  const postsCollection = collection(db, "posts");
   const [postsList, setPostsList] = useState<PostType[] | null>(null);
   const [error, setError] = useState("");
-  const getPosts = async () => {
-    try {
-      const data = await getDocs(postsCollection);
-      const posts = data.docs.map((post) => ({ ...post.data(), id: post.id }));
-      setPostsList(posts as PostType[]);
-    } catch (err) {
-      setError("Please login to your account, in order to view posts");
-    }
-  };
   useEffect(() => {
-    getPosts();
+    getPosts()
+      .then((res: any) => {
+        setPostsList(res);
+      })
+      .catch((err) => setError(err));
   }, []);
   return (
     <div className="d-flex justify-content-center flex-column">
