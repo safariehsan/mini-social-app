@@ -1,0 +1,74 @@
+[debug] [2022-12-21T15:06:34.202Z] ----------------------------------------------------------------------
+[debug] [2022-12-21T15:06:34.204Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\EHSAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-21T15:06:34.205Z] CLI Version:   11.19.0
+[debug] [2022-12-21T15:06:34.205Z] Platform:      win32
+[debug] [2022-12-21T15:06:34.205Z] Node Version:  v18.12.1
+[debug] [2022-12-21T15:06:34.206Z] Time:          Wed Dec 21 2022 18:36:34 GMT+0330 (Iran Standard Time)
+[debug] [2022-12-21T15:06:34.206Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-21T15:06:34.213Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-21T15:06:34.213Z] > authorizing via signed-in user (ehsansafari987@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\EHSAN\Desktop\Projects\mini-social-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-21T15:06:43.469Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-12-21T15:06:45.791Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 403
+[debug] [2022-12-21T15:06:45.792Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2022-12-21T15:06:45.792Z] Unable to parse JSON: SyntaxError: Unexpected token < in JSON at position 0
+[debug] [2022-12-21T15:06:50.763Z] FirebaseError: Unable to parse JSON: SyntaxError: Unexpected token < in JSON at position 0
+    at RetryOperation._fn (C:\Users\EHSAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:260:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2022-12-21T15:07:22.554Z] ----------------------------------------------------------------------
+[debug] [2022-12-21T15:07:22.556Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\EHSAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-21T15:07:22.557Z] CLI Version:   11.19.0
+[debug] [2022-12-21T15:07:22.557Z] Platform:      win32
+[debug] [2022-12-21T15:07:22.557Z] Node Version:  v18.12.1
+[debug] [2022-12-21T15:07:22.557Z] Time:          Wed Dec 21 2022 18:37:22 GMT+0330 (Iran Standard Time)
+[debug] [2022-12-21T15:07:22.558Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-21T15:07:22.565Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-21T15:07:22.565Z] > authorizing via signed-in user (ehsansafari987@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\EHSAN\Desktop\Projects\mini-social-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-21T15:07:35.630Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-12-21T15:07:36.282Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 403
+[debug] [2022-12-21T15:07:36.282Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2022-12-21T15:07:36.282Z] Unable to parse JSON: SyntaxError: Unexpected token < in JSON at position 0
+[debug] [2022-12-21T15:07:37.049Z] FirebaseError: Unable to parse JSON: SyntaxError: Unexpected token < in JSON at position 0
+    at RetryOperation._fn (C:\Users\EHSAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:260:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
