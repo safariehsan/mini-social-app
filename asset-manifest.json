@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/mini-social-app/static/css/main.b5705a2c.css",
-    "main.js": "/mini-social-app/static/js/main.370a068e.js",
+    "main.css": "/mini-social-app/static/css/main.0f161e8a.css",
+    "main.js": "/mini-social-app/static/js/main.20af4cbc.js",
+    "static/media/google_logo.png": "/mini-social-app/static/media/google_logo.fc45bfda80e9e01d0308.png",
+    "static/media/404-error.svg": "/mini-social-app/static/media/404-error.516130c824f57d6ffcfebf988dba38c4.svg",
+    "static/media/bg2.svg": "/mini-social-app/static/media/bg2.86ec57b3085bd255e5c4.svg",
     "index.html": "/mini-social-app/index.html",
-    "main.b5705a2c.css.map": "/mini-social-app/static/css/main.b5705a2c.css.map",
-    "main.370a068e.js.map": "/mini-social-app/static/js/main.370a068e.js.map"
+    "main.0f161e8a.css.map": "/mini-social-app/static/css/main.0f161e8a.css.map",
+    "main.20af4cbc.js.map": "/mini-social-app/static/js/main.20af4cbc.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5705a2c.css",
-    "static/js/main.370a068e.js"
+    "static/css/main.0f161e8a.css",
+    "static/js/main.20af4cbc.js"
   ]
 }
