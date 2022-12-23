@@ -28,7 +28,6 @@ export const PostLike = (props: any) => {
     getLikes(postId)
       .then((res) => {
         setLikes(res);
-        console.log("postId: ", postId);
       })
       .catch((err) => console.log(err));
   }, []);

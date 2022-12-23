@@ -15,6 +15,7 @@ export interface PostType {
 export const Posts = () => {
   const [postsList, setPostsList] = useState<PostType[] | null>(null);
   const [error, setError] = useState("");
+
   useEffect(() => {
     getPosts()
       .then((res: any) => {
@@ -22,6 +23,7 @@ export const Posts = () => {
       })
       .catch((err) => setError(err));
   }, []);
+  console.log(postsList);
   return (
     <div className="d-flex justify-content-center flex-column">
       {postsList ? (
