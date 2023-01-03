@@ -6,12 +6,15 @@ import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 import { getComments } from "../services";
 import PostLike from "./PostLike";
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
 export interface IPost {
   post: PostType;
 }
 
 export const PostItem = (props: IPost) => {
+  const { darkMode } = useContext(ThemeContext);
   const [displayComments, setDisplayComments] = useState<boolean>(false);
   const [commentsNumber, setCommentsNumber] = useState<number>(0);
   const [isCommentsUpdated, setIsCommentUpdated] = useState<boolean>(false);
@@ -25,23 +28,20 @@ export const PostItem = (props: IPost) => {
       .catch((err) => console.log(err));
   }, [isCommentsUpdated]);
 
-  // useEffect(() => {
-  //   console.log(props.post.id);
-  // }, []);
-
   return (
     <div className="card post-item mb-3">
-      <div className="card-header bg-dark text-white">
+      <div className={`card-header py-1 ${darkMode ? 'text-bg-secondary' : 'text-bg-info'}`}>
         <h3 className="h5">{props.post.title}</h3>
       </div>
-      <div className="card-body">
-        <img width={300} alt="post-image" src={props.post.photo} />
-        <br />
+      <div className={`card-body p-0 ${darkMode ? 'bg-dark' : 'bg-light'}`}>
+        <img width={300} alt={props.post.title} src={props.post.photo} className="w-100" />
+        <div className="content p-2">
         {props.post.description}
+        </div>
       </div>
-      <div className="card-footer">
+      <div className={`card-footer ${darkMode ? 'text-bg-secondary' : 'text-bg-light'}`}>
         <div className="d-flex justify-content-between align-items-center align-self-center">
-          <small className="post-meta text-muted">
+          <small className="post-meta">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

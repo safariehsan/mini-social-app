@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav
       className={`navbar navbar-expand-lg shadow ${
-        darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+        darkMode ? "navbar-dark bg-dark" : "text-bg-light"
       }`}
     >
       <div className="container">

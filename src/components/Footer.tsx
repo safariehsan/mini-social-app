@@ -1,8 +1,8 @@
 export const Footer = ({ mode }: any) => {
   return (
     <footer
-      className={`p-3 ${
-        mode === "dark" ? "bg-dark text-light" : "bg-light text-dark"
+      className={`p-1 shadow ${
+        mode === "dark" ? "text-bg-dark" : "text-bg-light"
       }`}
     >
       <div className="container">

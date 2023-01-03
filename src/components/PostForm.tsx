@@ -16,6 +16,8 @@ import {
 } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import { Spinner } from "./Spinner";
+import { useContext } from "react";
+import { ThemeContext } from "../App"
 
 interface NewPost {
   title: string;
@@ -25,6 +27,7 @@ interface NewPost {
 }
 
 export const PostForm = () => {
+  const { darkMode } = useContext(ThemeContext);
   const [uploadImage, setUploadImage] = useState<any>(null);
   const [uploadedUrl, setUploadedUrl] = useState<string>("");
   const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -88,6 +91,7 @@ export const PostForm = () => {
       alert("Error!");
     }
   };
+
   const renameUploadedFile = (name: string) => {
     const fileExtension = "." + name?.split(".").pop()!.toLowerCase();
     const newFileName = uploadImage?.name.replace(
@@ -96,6 +100,7 @@ export const PostForm = () => {
     );
     return newFileName;
   };
+
   const uploadImageHandler = () => {
     try {
       setIsUploading(true);
@@ -122,8 +127,10 @@ export const PostForm = () => {
   };
 
   return (
-    <div className="card text-white bg-dark">
-      <div className="card-header bg-dark text-light h5">Add new post</div>
+    <div className={`card ${
+      darkMode ? "text-bg-dark" : "text-bg-light"
+    }`}>
+      <div className={`card-header h5 ${darkMode ? 'text-bg-secondary' : 'text-bg-info'}`}>Add new post</div>
       <div className="card-body">
         <form
           onSubmit={handleSubmit(onFormSubmit)}

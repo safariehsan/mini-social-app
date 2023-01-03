@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PostItem } from "../components/Post";
 import { getPosts } from "../services";
+import { Spinner } from "./Spinner";
 
 export interface PostType {
   id: string;
@@ -15,20 +16,24 @@ export interface PostType {
 export const Posts = () => {
   const [postsList, setPostsList] = useState<PostType[] | null>(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getPosts()
       .then((res: any) => {
+        setLoading(false);
         setPostsList(res);
       })
       .catch((err) => setError(err));
   }, []);
-  console.log(postsList);
+  if(loading) {
+    return <Spinner />
+  }
   return (
     <div className="d-flex justify-content-center flex-column">
       {postsList ? (
         postsList.map((item, index) => {
-          // console.log(item);
           return <PostItem key={index} post={item} />;
         })
       ) : (
